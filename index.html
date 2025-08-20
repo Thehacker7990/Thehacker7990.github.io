@@ -1,149 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BB&L Lawn Care</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9fff9;
-      color: #333;
-    }
-    header {
-      background: #2e7d32;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 { margin: 0; font-size: 2rem; }
-    nav { margin-top: 10px; }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    nav a:hover { text-decoration: underline; }
-    .hero {
-      background: url("https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
-      height: 300px;
-      display: flex; align-items: center; justify-content: center;
-      color: white; font-size: 2rem;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-    }
-    .services { padding: 40px; text-align: center; }
-    .services h2 { color: #2e7d32; }
-    .service-grid {
-      display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap;
-    }
-    .service-card {
-      background: white; border: 1px solid #ddd; border-radius: 10px;
-      padding: 20px; width: 250px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s;
-    }
-    .service-card:hover { transform: scale(1.05); }
-    .booking { padding: 40px; background: #e8f5e9; }
-    .booking h2 { text-align: center; color: #2e7d32; }
-    .calendar-container {
-      max-width: 500px; margin: 30px auto; background: white;
-      padding: 20px; border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    label { font-weight: bold; display: block; margin: 10px 0 5px; }
-    input, select, button {
-      width: 100%; padding: 10px; margin-bottom: 15px;
-      border: 1px solid #aaa; border-radius: 5px; font-size: 1rem;
-    }
-    button {
-      background: #2e7d32; color: white; border: none;
-      cursor: pointer; transition: 0.3s;
-    }
-    button:hover { background: #1b5e20; }
-    footer {
-      text-align: center; padding: 20px; background: #2e7d32;
-      color: white; margin-top: 40px;
-    }
-  </style>
-</head>
-<body>
+<!doctype html>
+<!-- Lucas/Hamm-->
+ <HTML>
+<HEAD><TITLE>Calendar</TITLE></HEAD>
+<BODY BGCOLOR="LightGray">
+<marquee style="color:Red;">This is my CS 110 Lab2 </marquee>
 
-  <!-- HEADER -->
-  <header>
-    <h1>BB&L Lawn Care</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#booking">Book Now</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<CENTER> <H2>What items or goods that you have just bought</H2> Check all that apply.</H2>
+<table width=100% border=2 bordercolor="black" cellpadding=5 bgcolor="black" cellpadding=5 bgcolor="Gold">
+<tr>
+<td><input type="checkbox">Basketball<br>$9.54</td>
+<td>input type="checkbox">Soccer Ball<br>$9.86</td><td>
+<td><input type="checkbox">Volleyball<br>$8.39</td>
+<td>input type="checkbox">Football<br>$10.49</td><td>
+<t/tr>
 
-  <!-- HERO -->
-  <div class="hero">
-    <p>Keeping Your Lawn Beautiful & Healthy 🌱</p>
-  </div>
-
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <h2>Our Services</h2>
-    <div class="service-grid">
-      <div class="service-card">
-        <h3>Lawn Mowing</h3>
-        <p>Regular mowing services to keep your lawn tidy and healthy.</p>
-      </div>
-      <div class="service-card">
-        <h3>Weed Control</h3>
-        <p>Safe and effective weed management for your yard.</p>
-      </div>
-      <div class="service-card">
-        <h3>Fertilization</h3>
-        <p>Premium treatments to keep your grass green and thriving.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOOKING -->
-  <section class="booking" id="booking">
-    <h2>Book a Lawn Care Service</h2>
-    <div class="calendar-container">
-      <!-- FormSubmit.io integration -->
-      <form action="https://formsubmit.co/Lucashamm2009@gmail.com" method="POST">
-        <!-- Disable Captcha -->
-        <input type="hidden" name="_captcha" value="false">
-        <!-- Redirect after submit -->
-        <input type="hidden" name="_next" value="https://your-username.github.io/bb-lawn-care/thankyou.html">
-
-        <label for="service">Choose Service:</label>
-        <select id="service" name="Service" required>
-          <option value="">-- Select a Service --</option>
-          <option value="Lawn Mowing">Lawn Mowing</option>
-          <option value="Weed Control">Weed Control</option>
-          <option value="Fertilization">Fertilization</option>
-        </select>
-
-        <label for="date">Pick a Date:</label>
-        <input type="date" id="date" name="Date" required>
-
-        <label for="time">Pick a Time:</label>
-        <input type="time" id="time" name="Time" required>
-
-        <label for="name">Your Name:</label>
-        <input type="text" id="name" name="Name" required placeholder="John Doe">
-
-        <label for="email">Your Email:</label>
-        <input type="email" id="email" name="Email" required placeholder="john@example.com">
-
-        <button type="submit">Book Service</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="contact">
-    <p>📍 Serving Your Local Area | 📞 (555) 123-4567 | ✉️</p>
-    <p>&copy; 2025 B&B Lawn Care. All Rights Reserved.</p>
-  </footer>
-
-</body>
-</html>
+<tr>
+<td><input type="checkbox">Baseball Bat<br>$8.59</td>
+<td><input type="checkbox">Camping Light<br>$3.25</td><td>
+<td><input type="checkbox">Tennis Racket<br>$12.13</td><td>
+</td><tr>
+</table>
+<H2>My Information</H2>
+<table Width=50% border=2 bordercolor="Red" cellpadding=3 bgcolor="Blue"
+    <tr> <td>  Name:     </td> <td> Robert Muller        </td> </tr>
+    <tr> <td>  Hobbies:  </td> <td> drawling, sports, playing games...</TD> <tr>
+    <tr> </td> Hometown: </td> <td> Chicago           </td> </tr>
+    <tr> <td>  Major:    </td> </td> Computer Science </td> </tr>
+</table>
+</CENTER>
+</BODY>
+</HTML>
