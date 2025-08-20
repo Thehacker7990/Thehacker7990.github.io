@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>B&B Lawn Care</title>
   <style>
-    /* ===== GENERAL STYLES ===== */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -18,110 +17,53 @@
       padding: 20px;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    nav {
-      margin-top: 10px;
-    }
+    header h1 { margin: 0; font-size: 2rem; }
+    nav { margin-top: 10px; }
     nav a {
       color: white;
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== HERO SECTION ===== */
+    nav a:hover { text-decoration: underline; }
     .hero {
-      background: url("https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      background: url("https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
       height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2rem;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 2rem;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
     }
-
-    /* ===== SERVICES ===== */
-    .services {
-      padding: 40px;
-      text-align: center;
-    }
-    .services h2 {
-      color: #2e7d32;
-    }
+    .services { padding: 40px; text-align: center; }
+    .services h2 { color: #2e7d32; }
     .service-grid {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 20px;
-      flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap;
     }
     .service-card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 20px;
-      width: 250px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: 0.3s;
+      background: white; border: 1px solid #ddd; border-radius: 10px;
+      padding: 20px; width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s;
     }
-    .service-card:hover {
-      transform: scale(1.05);
-    }
-
-    /* ===== BOOKING SECTION ===== */
-    .booking {
-      padding: 40px;
-      background: #e8f5e9;
-    }
-    .booking h2 {
-      text-align: center;
-      color: #2e7d32;
-    }
+    .service-card:hover { transform: scale(1.05); }
+    .booking { padding: 40px; background: #e8f5e9; }
+    .booking h2 { text-align: center; color: #2e7d32; }
     .calendar-container {
-      max-width: 500px;
-      margin: 30px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
+      max-width: 500px; margin: 30px auto; background: white;
+      padding: 20px; border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    label {
-      font-weight: bold;
-      display: block;
-      margin: 10px 0 5px;
-    }
+    label { font-weight: bold; display: block; margin: 10px 0 5px; }
     input, select, button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #aaa;
-      border-radius: 5px;
-      font-size: 1rem;
+      width: 100%; padding: 10px; margin-bottom: 15px;
+      border: 1px solid #aaa; border-radius: 5px; font-size: 1rem;
     }
     button {
-      background: #2e7d32;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
+      background: #2e7d32; color: white; border: none;
+      cursor: pointer; transition: 0.3s;
     }
-    button:hover {
-      background: #1b5e20;
-    }
-
+    button:hover { background: #1b5e20; }
     footer {
-      text-align: center;
-      padding: 20px;
-      background: #2e7d32;
-      color: white;
-      margin-top: 40px;
+      text-align: center; padding: 20px; background: #2e7d32;
+      color: white; margin-top: 40px;
     }
   </style>
 </head>
@@ -165,26 +107,32 @@
   <section class="booking" id="booking">
     <h2>Book a Lawn Care Service</h2>
     <div class="calendar-container">
-      <form id="bookingForm">
+      <!-- FormSubmit.io integration -->
+      <form action="https://formsubmit.co/Lucashamm2009@gmail.com" method="POST">
+        <!-- Disable Captcha -->
+        <input type="hidden" name="_captcha" value="false">
+        <!-- Redirect after submit -->
+        <input type="hidden" name="_next" value="https://your-username.github.io/bb-lawn-care/thankyou.html">
+
         <label for="service">Choose Service:</label>
-        <select id="service" required>
+        <select id="service" name="Service" required>
           <option value="">-- Select a Service --</option>
-          <option value="mowing">Lawn Mowing</option>
-          <option value="weed">Weed Control</option>
-          <option value="fertilization">Fertilization</option>
+          <option value="Lawn Mowing">Lawn Mowing</option>
+          <option value="Weed Control">Weed Control</option>
+          <option value="Fertilization">Fertilization</option>
         </select>
 
         <label for="date">Pick a Date:</label>
-        <input type="date" id="date" required>
+        <input type="date" id="date" name="Date" required>
 
         <label for="time">Pick a Time:</label>
-        <input type="time" id="time" required>
+        <input type="time" id="time" name="Time" required>
 
         <label for="name">Your Name:</label>
-        <input type="text" id="name" required placeholder="John Doe">
+        <input type="text" id="name" name="Name" required placeholder="John Doe">
 
         <label for="email">Your Email:</label>
-        <input type="email" id="email" required placeholder="john@example.com">
+        <input type="email" id="email" name="Email" required placeholder="john@example.com">
 
         <button type="submit">Book Service</button>
       </form>
@@ -193,29 +141,9 @@
 
   <!-- FOOTER -->
   <footer id="contact">
-    <p>📍 Serving Your Local Area | 📞 (555) 123-4567 | ✉️ info@bblawncare.com</p>
+    <p>📍 Serving Your Local Area | 📞 (555) 123-4567 | ✉️ Lucashamm2009@gmail.com</p>
     <p>&copy; 2025 B&B Lawn Care. All Rights Reserved.</p>
   </footer>
-
-  <script>
-    // Handle Booking Submission
-    document.getElementById("bookingForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const service = document.getElementById("service").value;
-      const date = document.getElementById("date").value;
-      const time = document.getElementById("time").value;
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-
-      if(service && date && time && name && email) {
-        alert(`✅ Thank you ${name}! Your ${service} service is booked for ${date} at ${time}. We will confirm via email at ${email}.`);
-        this.reset();
-      } else {
-        alert("❗ Please fill out all fields.");
-      }
-    });
-  </script>
 
 </body>
 </html>
