@@ -1,33 +1,222 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Simple Webpage hi</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            background: #f9f9f9; 
-            margin: 0; 
-            padding: 2em;
-        }
-        .container {
-            background: #fff;
-            padding: 2em;
-            border-radius: 8px;
-            max-width: 600px;
-            margin: 2em auto;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        h1 { color: #333; }
-        p { color: #555; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBL Lawn Care</title>
+  <style>
+    /* ===== GENERAL STYLES ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9fff9;
+      color: #333;
+    }
+    header {
+      background: #2e7d32;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: url("https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+
+    /* ===== SERVICES ===== */
+    .services {
+      padding: 40px;
+      text-align: center;
+    }
+    .services h2 {
+      color: #2e7d32;
+    }
+    .service-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .service-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .service-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== BOOKING SECTION ===== */
+    .booking {
+      padding: 40px;
+      background: #e8f5e9;
+    }
+    .booking h2 {
+      text-align: center;
+      color: #2e7d32;
+    }
+    .calendar-container {
+      max-width: 500px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button {
+      background: #2e7d32;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #1b5e20;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2e7d32;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to My Simple Webpage. Hi</h1>
-        <p>This is a basic webpage created for providence students only.</p>
-        <p>Feel free to customize it!</p>
+
+  <!-- HEADER -->
+  <header>
+    <h1>BBL Lawn Care</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#booking">Book Now</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p>Keeping Your Lawn Beautiful & Healthy 🌱</p>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Lawn Mowing</h3>
+        <p>Regular mowing services to keep your lawn tidy and healthy.</p>
+      </div>
+      <div class="service-card">
+        <h3>Weed Control</h3>
+        <p>Safe and effective weed management for your yard.</p>
+      </div>
+      <div class="service-card">
+        <h3>Fertilization</h3>
+        <p>Premium treatments to keep your grass green and thriving.</p>
+      </div>
     </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="booking" id="booking">
+    <h2>Book a Lawn Care Service</h2>
+    <div class="calendar-container">
+      <form id="bookingForm">
+        <label for="service">Choose Service:</label>
+        <select id="service" required>
+          <option value="">-- Select a Service --</option>
+          <option value="mowing">Lawn Mowing</option>
+          <option value="weed">Weed Control</option>
+          <option value="fertilization">Fertilization</option>
+        </select>
+
+        <label for="date">Pick a Date:</label>
+        <input type="date" id="date" required>
+
+        <label for="time">Pick a Time:</label>
+        <input type="time" id="time" required>
+
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" required placeholder="John Doe">
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" required placeholder="john@example.com">
+
+        <button type="submit">Book Service</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <p>📍 Serving Your Local Area | 📞 (555) 123-4567 | ✉️ info@bbllawncare.com</p>
+    <p>&copy; 2025 BBL Lawn Care. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Handle Booking Submission
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const service = document.getElementById("service").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      if(service && date && time && name && email) {
+        alert(`✅ Thank you ${name}! Your ${service} service is booked for ${date} at ${time}. We will confirm via email at ${email}.`);
+        this.reset();
+      } else {
+        alert("❗ Please fill out all fields.");
+      }
+    });
+  </script>
+
 </body>
 </html>
