@@ -17,4 +17,6 @@ a city of 70,000, fifty-six miles northeast of Indianapolis.	<br>
 
 </h2>
 
-onmouseout="this.style.backgroundColor='yellow';"		onclick='alert(
+<input type="button value="Click for BSU Big Event!" onmouseover="this.style.backgroundColor='red';"
+
+onmouseout="this.style.backgroundColor='yellow'
