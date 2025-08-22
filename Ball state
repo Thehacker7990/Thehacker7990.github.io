@@ -17,4 +17,4 @@ a city of 70,000, fifty-six miles northeast of Indianapolis.	<br>
 
 </h2>
 
-onmouseout=
+onmouseout="this.style.backgroundColor='yellow';"		onclick='alert(
