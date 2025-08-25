@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Combined Website: Lab1 + Lab2 + Lab3 + Lab4 -->
+<!-- Combined Website: Lab1 - Lab6 -->
 <html>
 <head>
   <title>Thehacker7990.github.io - CS110 Labs</title>
@@ -48,36 +48,35 @@
 <hr style="border: 3px solid black; margin: 40px 0;">
 
 <!-- ========== Lab 2 Section ========== -->
-<body bgcolor="LightGray">
-  <center>
-    <h1 style="color:darkred;">Lab 2</h1>
-  </center>
-  <marquee style="color:Red;">This is my CS 110 Lab2</marquee>
+<center>
+  <h1 style="color:darkred;">Lab 2</h1>
+</center>
+<marquee style="color:Red;">This is my CS 110 Lab2</marquee>
 
-  <center>
-    <h2>What items or goods that you have just bought? Check all that apply.</h2>
-    <table width="100%" border="2" bordercolor="black" cellpadding="5" bgcolor="gold">
-      <tr>
-        <td><input type="checkbox">Basketball<br>$9.54</td>
-        <td><input type="checkbox">Soccer Ball<br>$9.86</td>
-        <td><input type="checkbox">Volleyball<br>$8.39</td>
-        <td><input type="checkbox">Football<br>$10.49</td>
-      </tr>
-      <tr>
-        <td><input type="checkbox">Baseball Bat<br>$8.59</td>
-        <td><input type="checkbox">Camping Light<br>$3.25</td>
-        <td><input type="checkbox">Tennis Racket<br>$12.13</td>
-      </tr>
-    </table>
+<center>
+  <h2>What items or goods that you have just bought? Check all that apply.</h2>
+  <table width="100%" border="2" bordercolor="black" cellpadding="5" bgcolor="gold">
+    <tr>
+      <td><input type="checkbox">Basketball<br>$9.54</td>
+      <td><input type="checkbox">Soccer Ball<br>$9.86</td>
+      <td><input type="checkbox">Volleyball<br>$8.39</td>
+      <td><input type="checkbox">Football<br>$10.49</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox">Baseball Bat<br>$8.59</td>
+      <td><input type="checkbox">Camping Light<br>$3.25</td>
+      <td><input type="checkbox">Tennis Racket<br>$12.13</td>
+    </tr>
+  </table>
 
-    <h2>My Information</h2>
-    <table width="50%" border="2" bordercolor="Red" cellpadding="3" bgcolor="Blue">
-      <tr><td>Name:</td><td>Thehacker7990.github.io</td></tr>
-      <tr><td>Hobbies:</td><td>drawing, sports, playing games...</td></tr>
-      <tr><td>Hometown:</td><td>Chicago</td></tr>
-      <tr><td>Major:</td><td>Computer Science</td></tr>
-    </table>
-  </center>
+  <h2>My Information</h2>
+  <table width="50%" border="2" bordercolor="Red" cellpadding="3" bgcolor="Blue">
+    <tr><td>Name:</td><td>Thehacker7990.github.io</td></tr>
+    <tr><td>Hobbies:</td><td>drawing, sports, playing games...</td></tr>
+    <tr><td>Hometown:</td><td>Chicago</td></tr>
+    <tr><td>Major:</td><td>Computer Science</td></tr>
+  </table>
+</center>
 
 <hr style="border: 3px solid black; margin: 40px 0;">
 
@@ -133,6 +132,86 @@ onclick="
 ">
 <hr>
 <div id="outputDiv"></div>
+
+<hr style="border: 3px solid black; margin: 40px 0;">
+
+<!-- ========== Lab 5 Section ========== -->
+<!-- Lab5.html by Thehacker7990.github.io -->
+<!-- Lab5 Web page that displays the distance between two coordinates. -->
+<center>
+  <h1 style="color:darkred;">Lab 5</h1>
+</center>
+<h2>Distance Calculator</h2>
+
+<script type="text/javascript">
+function distance()
+{
+  x1 = parseFloat(document.getElementById('x1Box').value);
+  y1 = parseFloat(document.getElementById('y1Box').value);
+  x2 = parseFloat(document.getElementById('x2Box').value);
+  y2 = parseFloat(document.getElementById('y2Box').value);
+
+  dist = Math.sqrt( Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2) );
+  result = Math.round(dist);
+
+  document.getElementById('outputDiv5').innerHTML=
+  'The distance between (' + x1 + ', ' + y1 + ') and (' + x2 + ',' + y2 + ') is ' + result ;
+}
+</script>
+
+<p>
+coordinate 1: (<input type="text" id="x1Box" value="0">,
+<input type="text" id="y1Box" value="0">)<br><br>
+coordinate 2: (<input type ="text" id="x2Box" value="3">,
+<input type="text" id="y2Box" value="4">)
+</p>
+<input type="button" value="Calculate Distance" onclick="distance();">
+<hr>
+<div id="outputDiv5"></div>
+
+<hr style="border: 3px solid black; margin: 40px 0;">
+
+<!-- ========== Lab 6 Section ========== -->
+<!-- Lab6.html by Thehacker7990.github.io -->
+<!-- Lab6.html that converts a class final numeric score into a letter grade -->
+<center>
+  <h1 style="color:darkred;">Lab 6</h1>
+</center>
+<h2>Convert a Numeric Score into a Letter Grade</h2>
+
+<script type="text/javascript">
+function convert()
+{
+  var scores, letter;
+  scores=parseFloat(document.getElementById('scoreBox').value);
+
+  if (scores < 60) {
+    letter = 'F';
+  }
+  else if (scores < 70) {
+    letter = 'D';
+  }
+  else if (scores < 80) {
+    letter = 'C';
+  }
+  else if (scores < 90) {
+    letter = 'B';
+  }
+  else {
+    letter = 'A';
+  }
+
+  document.getElementById('outputDiv6').innerHTML=
+  'The Letter grade is: ' + letter;
+}
+</script>
+
+<p> Please enter a student's class final numeric score here:</p>
+<input type="text" id="scoreBox" value="">
+<br><br>
+<input type="button" value="Convert to a letter grade!" onclick="convert();">
+<hr>
+<div id="outputDiv6"></div>
 
 </body>
 </html>
