@@ -1,217 +1,392 @@
 <!doctype html>
-<!-- Combined Website: Lab1 - Lab6 -->
-<html>
+<html lang="en">
 <head>
-  <title>Thehacker7990.github.io - CS110 Labs</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>128-bit Password Generator 🔐</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#6ee7b7;
+      --muted:#9aa7bc; --danger:#ff7b7b; --glass: rgba(255,255,255,0.03);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(180deg,#071022 0%, #081028 60%), radial-gradient(800px 400px at 10% 10%, rgba(110,231,183,0.03), transparent 10%);
+      color:#e6eef8;
+      padding:24px;
+    }
+    .card{
+      width:100%; max-width:920px; background:linear-gradient(180deg,var(--card), #071025);
+      border-radius:12px; padding:22px; box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    h1{margin:0 0 6px 0; font-size:20px}
+    p.lead{margin:0 0 18px 0; color:var(--muted); font-size:13px}
+    .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .controls{flex:1; min-width:260px}
+    .control{
+      display:flex; align-items:center; gap:8px; margin-bottom:10px;
+    }
+    .control label{min-width:160px; color:var(--muted); font-size:13px}
+    .checkboxes{display:flex; gap:8px; flex-wrap:wrap}
+    .checkbox{display:flex; align-items:center; gap:8px; background:var(--glass); padding:8px 10px; border-radius:8px; font-size:13px; color:var(--muted)}
+    input[type="number"]{width:88px; padding:8px 10px; background:transparent; border:1px solid rgba(255,255,255,0.04); color:inherit; border-radius:8px}
+    .btn{
+      display:inline-flex; gap:8px; align-items:center; padding:10px 14px; border-radius:10px;
+      background:linear-gradient(90deg,var(--accent), #3ee0d3); color:#052023; border:none; cursor:pointer; font-weight:700;
+      box-shadow: 0 6px 18px rgba(51,214,183,0.12);
+    }
+    .btn.outline{background:transparent; color:var(--accent); border:1px solid rgba(110,231,183,0.12); box-shadow:none}
+    .output{
+      margin-top:18px; display:flex; gap:8px; align-items:center;
+      background:rgba(255,255,255,0.02); padding:14px; border-radius:10px; width:100%;
+    }
+    .password{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+      font-size:14px; word-break:break-all; color:#e6fff8; flex:1;
+    }
+    .meta{margin-top:12px; color:var(--muted); font-size:13px; display:flex; gap:18px; flex-wrap:wrap;}
+    .meter{
+      height:10px; background:rgba(255,255,255,0.04); border-radius:10px; overflow:hidden; width:220px;
+    }
+    .meter > i{display:block; height:100%; background:linear-gradient(90deg,#ffb86b,#6ee7b7); width:0%;}
+    .small{font-size:12px; color:var(--muted)}
+    .actions{display:flex; gap:8px; align-items:center}
+    .copy-btn{padding:8px 10px; border-radius:8px; background:rgba(255,255,255,0.02); color:var(--muted); border:1px solid rgba(255,255,255,0.02); cursor:pointer}
+    .footer{margin-top:18px; color:var(--muted); font-size:12px}
+    .mode-toggle{display:inline-flex; gap:6px; background:rgba(255,255,255,0.02); padding:6px; border-radius:8px}
+    .mode-toggle button{background:transparent; border:0; color:var(--muted); padding:6px 10px; border-radius:6px; cursor:pointer}
+    .mode-toggle button.active{background:linear-gradient(90deg,var(--accent), #3ee0d3); color:#052023; font-weight:700}
+    footer.attribution{color:var(--muted); font-size:12px; margin-top:12px}
+    @media (max-width:720px){
+      .row{flex-direction:column}
+      .control label{min-width:120px}
+    }
+  </style>
 </head>
-<body bgcolor="FloralWhite">
+<body>
+  <div class="card" role="main" aria-labelledby="title">
+    <h1 id="title">128-bit Password Generator 🔐</h1>
+    <p class="lead">Generates cryptographically secure passwords using <code>crypto.getRandomValues</code>. Default creates a password with <strong>128 bits of entropy</strong> using the selected character sets.</p>
 
-<!-- ========== Lab 1 Section ========== -->
-<center>
-  <h1 style="color:darkred;">Lab 1</h1>
-  <p><b><u> Department of Computer Science </u></b></p>
-  <p><b><a href="https://www.bsu.edu/">Ball State University</a></b></p>
-  <p><b><i>Muncie, IN 47306</i></b></p>
-</center>
-<hr width="100%">
-<h2>Our Programs</h2>
-<ul>
-  <li>Bachelor Degree in Computer Science</li>
-  <li>Minor in Computer Science</li>
-  <li>Minor in Computer Security</li>
-</ul>
-<h3>Program Strengths</h3>
-<ul>
-  <li>Programming Languages</li>
-  <li>Operating Systems</li>
-  <li>Networks</li>
-  <li>Databases</li>
-  <li>Theory of Computing</li>
-</ul>
-<h3>About Us</h3>
-<ol>
-  <li>Research Groups</li>
-  <li>Faculty and Staff</li>
-  <li>Contact Us</li>
-</ol>
-<h4>Additional Contact Information</h4>
-<ul>
-  <li>Office of Undergraduate Admissions</li>
-  <li>Academic Advising</li>
-  <li>College of Sciences and Humanities</li>
-</ul>
-<div style="text-align:center">
-  <h3 style="background-color:Tomato;">Location</h3>
-  <p style="background-color:DodgerBlue;">Robert Bell Building (RB)<br>Room 455</p>
-</div>
+    <div class="row">
+      <div class="controls" aria-label="controls">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div class="mode-toggle" role="tablist" aria-label="mode">
+            <button id="modeEntropy" class="active" role="tab" aria-selected="true">128-bit entropy</button>
+            <button id="modeLength" role="tab" aria-selected="false">128-char</button>
+          </div>
+          <div class="small">🔒 Secure RNG: <strong>crypto.getRandomValues</strong></div>
+        </div>
 
-<hr style="border: 3px solid black; margin: 40px 0;">
+        <div class="control">
+          <label for="lengthInput">Password length</label>
+          <input id="lengthInput" type="number" min="1" value="16" aria-label="password length">
+          <div class="small" style="margin-left:auto">auto-calculated for entropy mode</div>
+        </div>
 
-<!-- ========== Lab 2 Section ========== -->
-<center>
-  <h1 style="color:darkred;">Lab 2</h1>
-</center>
-<marquee style="color:Red;">This is my CS 110 Lab2</marquee>
+        <div class="control">
+          <label>Character sets</label>
+          <div class="checkboxes" role="group" aria-label="character sets">
+            <label class="checkbox"><input id="chkLower" type="checkbox" checked> abc</label>
+            <label class="checkbox"><input id="chkUpper" type="checkbox" checked> ABC</label>
+            <label class="checkbox"><input id="chkDigits" type="checkbox" checked> 0-9</label>
+            <label class="checkbox"><input id="chkSpecial" type="checkbox" checked> !@#$…</label>
+            <label class="checkbox"><input id="chkAmbig" type="checkbox"> hide ambiguous</label>
+          </div>
+        </div>
 
-<center>
-  <h2>What items or goods that you have just bought? Check all that apply.</h2>
-  <table width="100%" border="2" bordercolor="black" cellpadding="5" bgcolor="gold">
-    <tr>
-      <td><input type="checkbox">Basketball<br>$9.54</td>
-      <td><input type="checkbox">Soccer Ball<br>$9.86</td>
-      <td><input type="checkbox">Volleyball<br>$8.39</td>
-      <td><input type="checkbox">Football<br>$10.49</td>
-    </tr>
-    <tr>
-      <td><input type="checkbox">Baseball Bat<br>$8.59</td>
-      <td><input type="checkbox">Camping Light<br>$3.25</td>
-      <td><input type="checkbox">Tennis Racket<br>$12.13</td>
-    </tr>
-  </table>
+        <div class="control">
+          <label>Generate</label>
+          <div style="display:flex; gap:8px;">
+            <button id="genBtn" class="btn">Generate</button>
+            <button id="gen128Bits" class="btn outline" title="Generate password targeting 128 bits of entropy">128-bit</button>
+            <button id="gen128Chars" class="btn outline" title="Generate a 128-character password">128-char</button>
+          </div>
+        </div>
 
-  <h2>My Information</h2>
-  <table width="50%" border="2" bordercolor="Red" cellpadding="3" bgcolor="Blue">
-    <tr><td>Name:</td><td>Thehacker7990.github.io</td></tr>
-    <tr><td>Hobbies:</td><td>drawing, sports, playing games...</td></tr>
-    <tr><td>Hometown:</td><td>Chicago</td></tr>
-    <tr><td>Major:</td><td>Computer Science</td></tr>
-  </table>
-</center>
+        <div class="output" aria-live="polite">
+          <div class="password" id="password" tabindex="0" aria-label="generated password">—</div>
+          <div class="actions">
+            <button class="copy-btn" id="copyBtn">Copy</button>
+            <button class="copy-btn" id="regenBtn" title="Regenerate">Regenerate</button>
+          </div>
+        </div>
 
-<hr style="border: 3px solid black; margin: 40px 0;">
+        <div class="meta" aria-hidden="false">
+          <div class="small">Charset size: <strong id="charsetSize">0</strong></div>
+          <div class="small">Entropy/char: <strong id="entropyPerChar">0</strong> bits</div>
+          <div class="small">Target entropy: <strong id="targetEntropy">128</strong> bits</div>
+          <div class="small">Calculated length: <strong id="calculatedLength">0</strong> chars</div>
+        </div>
 
-<!-- ========== Lab 3 Section ========== -->
-<center>
-  <h1 style="color:darkred;">Lab 3</h1>
-</center>
-<h1>Left-Justified Big Heading</h1>
+        <div style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <div class="meter" aria-hidden="true"><i id="meterFill"></i></div>
+          <div class="small" id="strengthLabel">Strength: —</div>
+        </div>
 
-<h2 onmouseover="this.style.color='Blue';" onmouseout="this.style.color='Black';">
-Ball State University is a comprehensive, publicly assisted institution of higher learning <br>
-whose mission is to provide excellent education. It is located in Muncie, Indiana, 
-a city of 70,000, fifty-six miles northeast of Indianapolis. <br>
-</h2>
+        <div class="footer">
+          <div>Tip: you can tweak sets and press <strong>Generate</strong> or use the quick buttons.</div>
+          <div class="attribution">Made with 🔨🤖🔧 — uses unbiased sampling for secure randomness</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<input type="button" value="Click for BSU Big Event!"
-  onmouseover="this.style.backgroundColor='red';"
-  onmouseout="this.style.backgroundColor='yellow';"
-  onclick="alert('BSU, Celebrating 100 years.');">
-<br><br><br><br>
-<input type="button" value="Click for Muncie!"
-  onmouseover="this.style.backgroundColor='red';"
-  onmouseout="this.style.backgroundColor='green';"
-  onclick="alert('Muncie is located in East Central Indiana, about 50 miles northeast of Indianapolis.!');">
+  <script>
+    // --- Character sets ---
+    const SETS = {
+      lower: "abcdefghijklmnopqrstuvwxyz",
+      upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      digits: "0123456789",
+      // Safe set of special characters commonly accepted by password fields:
+      special: "!@#$%^&*()-_=+[]{};:,.<>/?~"
+    };
 
-<hr style="border: 3px solid black; margin: 40px 0;">
+    // Ambiguous characters commonly hidden: "Il1O0" etc.
+    const AMBIGUOUS = "Il1O0`'\"|\\/,.;:[]{}()<>";
 
-<!-- ========== Lab 4 Section ========== -->
-<center>
-  <h1 style="color:darkred;">Lab 4</h1>
-</center>
-<h2>Grade Calculation</h2>
-<p>
-  Enter your name: <input type="text" id="nameBox" size="12" value=""><br><br>
-  Homework average: <input type="text" id="homeworkBox" value=""><br><br>
-  Lab average: <input type="text" id="labsBox" value=""><br><br>
-  Project score: <input type="text" id="projectBox" value=""><br><br>
-  Final Exam score: <input type="text" id="examBox" value="">
-</p>
-<br>
-<input type="button" value="Calculate Course Grade"
-onclick="
-  homework=parseFloat(document.getElementById('homeworkBox').value);
-  labs=parseFloat(document.getElementById('labsBox').value);
-  project=parseFloat(document.getElementById('projectBox').value);
-  finalExam=parseFloat(document.getElementById('examBox').value);
+    // Helper: unbiased random integer in [0, max-1] using crypto.getRandomValues with rejection sampling
+    function secureRandomInt(max){
+      if (!Number.isInteger(max) || max <= 0) throw new Error("max must be positive integer");
+      const limit = Math.floor(0x100000000 / max) * max; // 2^32
+      const arr = new Uint32Array(1);
+      let r;
+      do {
+        window.crypto.getRandomValues(arr);
+        r = arr[0];
+      } while (r >= limit);
+      return r % max;
+    }
 
-  overall_Average = homework*0.20 + labs*0.30 + project*0.30 + finalExam*0.20;
+    // Build charset based on checkboxes
+    function buildCharset(options){
+      let cs = "";
+      if (options.lower) cs += SETS.lower;
+      if (options.upper) cs += SETS.upper;
+      if (options.digits) cs += SETS.digits;
+      if (options.special) cs += SETS.special;
+      if (options.ambig === false){ // if "hide ambiguous" is checked, remove ambiguous chars
+        cs = cs.split('').filter(ch => !AMBIGUOUS.includes(ch)).join('');
+      }
+      // Remove duplicates just in case (not really necessary here)
+      cs = Array.from(new Set(cs.split(''))).join('');
+      return cs;
+    }
 
-  document.getElementById('outputDiv').innerHTML =
-  'Hello ' + document.getElementById('nameBox').value + 
-  ', your overall course average grade is: ' + overall_Average;
-">
-<hr>
-<div id="outputDiv"></div>
+    // Generate a password with given length from charset using secureRandomInt (unbiased)
+    function generatePassword(length, charset){
+      if (charset.length === 0) return "";
+      let out = "";
+      for (let i = 0; i < length; i++){
+        const idx = secureRandomInt(charset.length);
+        out += charset[idx];
+      }
+      return out;
+    }
 
-<hr style="border: 3px solid black; margin: 40px 0;">
+    // UI elements
+    const chkLower = document.getElementById('chkLower');
+    const chkUpper = document.getElementById('chkUpper');
+    const chkDigits = document.getElementById('chkDigits');
+    const chkSpecial = document.getElementById('chkSpecial');
+    const chkAmbig = document.getElementById('chkAmbig');
 
-<!-- ========== Lab 5 Section ========== -->
-<!-- Lab5.html by Thehacker7990.github.io -->
-<!-- Lab5 Web page that displays the distance between two coordinates. -->
-<center>
-  <h1 style="color:darkred;">Lab 5</h1>
-</center>
-<h2>Distance Calculator</h2>
+    const lengthInput = document.getElementById('lengthInput');
+    const passwordDiv = document.getElementById('password');
+    const genBtn = document.getElementById('genBtn');
+    const gen128Bits = document.getElementById('gen128Bits');
+    const gen128Chars = document.getElementById('gen128Chars');
+    const copyBtn = document.getElementById('copyBtn');
+    const regenBtn = document.getElementById('regenBtn');
 
-<script type="text/javascript">
-function distance()
-{
-  x1 = parseFloat(document.getElementById('x1Box').value);
-  y1 = parseFloat(document.getElementById('y1Box').value);
-  x2 = parseFloat(document.getElementById('x2Box').value);
-  y2 = parseFloat(document.getElementById('y2Box').value);
+    const charsetSizeEl = document.getElementById('charsetSize');
+    const entropyPerCharEl = document.getElementById('entropyPerChar');
+    const targetEntropyEl = document.getElementById('targetEntropy');
+    const calculatedLengthEl = document.getElementById('calculatedLength');
 
-  dist = Math.sqrt( Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2) );
-  result = Math.round(dist);
+    const meterFill = document.getElementById('meterFill');
+    const strengthLabel = document.getElementById('strengthLabel');
 
-  document.getElementById('outputDiv5').innerHTML=
-  'The distance between (' + x1 + ', ' + y1 + ') and (' + x2 + ',' + y2 + ') is ' + result ;
-}
-</script>
+    const modeEntropyBtn = document.getElementById('modeEntropy');
+    const modeLengthBtn = document.getElementById('modeLength');
 
-<p>
-coordinate 1: (<input type="text" id="x1Box" value="0">,
-<input type="text" id="y1Box" value="0">)<br><br>
-coordinate 2: (<input type ="text" id="x2Box" value="3">,
-<input type="text" id="y2Box" value="4">)
-</p>
-<input type="button" value="Calculate Distance" onclick="distance();">
-<hr>
-<div id="outputDiv5"></div>
+    let lastSettings = null; // keep last used settings for quick regen
 
-<hr style="border: 3px solid black; margin: 40px 0;">
+    function getOptionsFromUI(){
+      return {
+        lower: chkLower.checked,
+        upper: chkUpper.checked,
+        digits: chkDigits.checked,
+        special: chkSpecial.checked,
+        ambig: chkAmbig.checked  // if true, "hide ambiguous" is ON; we'll remove ambiguous characters
+      };
+    }
 
-<!-- ========== Lab 6 Section ========== -->
-<!-- Lab6.html by Thehacker7990.github.io -->
-<!-- Lab6.html that converts a class final numeric score into a letter grade -->
-<center>
-  <h1 style="color:darkred;">Lab 6</h1>
-</center>
-<h2>Convert a Numeric Score into a Letter Grade</h2>
+    // Calculate entropy per char: log2(charsetSize)
+    function bitsPerChar(charsetSize){
+      if (charsetSize <= 0) return 0;
+      return Math.log2(charsetSize);
+    }
 
-<script type="text/javascript">
-function convert()
-{
-  var scores, letter;
-  scores=parseFloat(document.getElementById('scoreBox').value);
+    // Calculate minimal length to reach target entropy
+    function lengthForEntropy(targetBits, bpChar){
+      if (bpChar <= 0) return Infinity;
+      return Math.ceil(targetBits / bpChar);
+    }
 
-  if (scores < 60) {
-    letter = 'F';
-  }
-  else if (scores < 70) {
-    letter = 'D';
-  }
-  else if (scores < 80) {
-    letter = 'C';
-  }
-  else if (scores < 90) {
-    letter = 'B';
-  }
-  else {
-    letter = 'A';
-  }
+    // Update UI metadata and auto length if in entropy mode
+    let mode = 'entropy'; // 'entropy' or 'length'
+    function updateMeta(){
+      const opts = getOptionsFromUI();
+      // Note: opts.ambig === true means "hide ambiguous" is checked; buildCharset expects ambig false? adapt:
+      const built = buildCharset({
+        lower: opts.lower,
+        upper: opts.upper,
+        digits: opts.digits,
+        special: opts.special,
+        ambig: !opts.ambig // buildCharset expects ambig=false to remove ambiguous chars
+      });
+      const csSize = built.length;
+      const bp = bitsPerChar(csSize);
+      const target = 128;
+      const required = lengthForEntropy(target, bp);
 
-  document.getElementById('outputDiv6').innerHTML=
-  'The Letter grade is: ' + letter;
-}
-</script>
+      charsetSizeEl.textContent = csSize;
+      entropyPerCharEl.textContent = bp ? bp.toFixed(3) : "0";
+      targetEntropyEl.textContent = target;
+      calculatedLengthEl.textContent = isFinite(required) ? required : "N/A";
 
-<p> Please enter a student's class final numeric score here:</p>
-<input type="text" id="scoreBox" value="">
-<br><br>
-<input type="button" value="Convert to a letter grade!" onclick="convert();">
-<hr>
-<div id="outputDiv6"></div>
+      // update length input only if in entropy mode (auto)
+      if (mode === 'entropy'){
+        if (isFinite(required)) lengthInput.value = required;
+      }
 
+      // update strength meter: compute entropy for current length
+      const curLen = Number(lengthInput.value) || 0;
+      const totalEntropy = bp * curLen;
+      const pct = Math.min(100, Math.round((totalEntropy / 256) * 100)); // visualize against 256 bits (arbitrary)
+      meterFill.style.width = pct + "%";
+
+      let label = `${Math.round(totalEntropy)} bits`;
+      if (totalEntropy < 64) label = "Weak — " + label;
+      else if (totalEntropy < 96) label = "Medium — " + label;
+      else if (totalEntropy < 128) label = "Strong — " + label;
+      else label = "Very strong — " + label;
+      strengthLabel.textContent = "Strength: " + label;
+    }
+
+    // Generate with current UI settings
+    function doGenerate(useTargetEntropy=false, forceLength=null){
+      const opts = getOptionsFromUI();
+      const charset = buildCharset({
+        lower: opts.lower,
+        upper: opts.upper,
+        digits: opts.digits,
+        special: opts.special,
+        ambig: !opts.ambig
+      });
+      if (charset.length === 0){
+        passwordDiv.textContent = "Please select at least one character set.";
+        return;
+      }
+
+      let length = Number(lengthInput.value) || 0;
+      if (useTargetEntropy){
+        // compute minimal length to reach 128 bits
+        const bp = bitsPerChar(charset.length);
+        if (bp <= 0){
+          passwordDiv.textContent = "Charset problem — cannot compute entropy.";
+          return;
+        }
+        length = lengthForEntropy(128, bp);
+      }
+      if (forceLength !== null) length = forceLength;
+
+      // keep settings for quick regen
+      lastSettings = {charset, length};
+
+      // generate
+      const pwd = generatePassword(length, charset);
+      passwordDiv.textContent = pwd;
+      passwordDiv.setAttribute('aria-label', 'generated password: ' + pwd);
+
+      // update display metas
+      updateMeta();
+    }
+
+    // Hook events
+    genBtn.addEventListener('click', () => doGenerate(false));
+    gen128Bits.addEventListener('click', () => { mode='entropy'; setModeButtons(); doGenerate(true); });
+    gen128Chars.addEventListener('click', () => { mode='length'; setModeButtons(); doGenerate(false, 128); });
+
+    copyBtn.addEventListener('click', async () => {
+      const text = passwordDiv.textContent || "";
+      try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = "Copied ✅";
+        setTimeout(()=> copyBtn.textContent = "Copy", 1500);
+      } catch(e){
+        // fallback
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); document.body.removeChild(ta);
+          copyBtn.textContent = "Copied ✅";
+          setTimeout(()=> copyBtn.textContent = "Copy", 1500);
+        } catch(err){
+          copyBtn.textContent = "Copy failed";
+          setTimeout(()=> copyBtn.textContent = "Copy", 1500);
+        }
+      }
+    });
+
+    regenBtn.addEventListener('click', () => {
+      if (lastSettings){
+        const {charset, length} = lastSettings;
+        const p = generatePassword(length, charset);
+        passwordDiv.textContent = p;
+      } else {
+        doGenerate(mode === 'entropy');
+      }
+    });
+
+    // When char set toggles or length changes, update metadata
+    [chkLower, chkUpper, chkDigits, chkSpecial, chkAmbig].forEach(el => el.addEventListener('change', updateMeta));
+    lengthInput.addEventListener('input', () => { mode = 'length'; setModeButtons(); updateMeta(); });
+
+    // Mode toggle UI
+    function setModeButtons(){
+      if (mode === 'entropy'){
+        modeEntropyBtn.classList.add('active'); modeEntropyBtn.setAttribute('aria-selected','true');
+        modeLengthBtn.classList.remove('active'); modeLengthBtn.setAttribute('aria-selected','false');
+      } else {
+        modeLengthBtn.classList.add('active'); modeLengthBtn.setAttribute('aria-selected','true');
+        modeEntropyBtn.classList.remove('active'); modeEntropyBtn.setAttribute('aria-selected','false');
+      }
+    }
+    modeEntropyBtn.addEventListener('click', () => { mode='entropy'; setModeButtons(); updateMeta(); });
+    modeLengthBtn.addEventListener('click', () => { mode='length'; setModeButtons(); updateMeta(); });
+
+    // Initialize
+    updateMeta();
+
+    // Autofill a first password for convenience (128 bits)
+    doGenerate(true);
+
+    // Accessibility: allow clicking password box to select all and focus
+    passwordDiv.addEventListener('click', () => {
+      const range = document.createRange();
+      range.selectNodeContents(passwordDiv);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    });
+
+    // For very small viewports, ensure button labels don't overflow
+    window.addEventListener('resize', ()=>{/* no-op; could adapt UI further */});
+  </script>
 </body>
 </html>
