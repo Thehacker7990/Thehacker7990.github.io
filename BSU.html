@@ -1,1 +1,185 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenLeaf Lawn Care</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f8f9f8;
+    }
+
+    header {
+      background: #2e7d32;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: url("https://images.unsplash.com/photo-1508873535684-277a3cbcc4e4?auto=format&fit=crop&w=1600&q=80")
+        center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    form input, form textarea, form button {
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    form button {
+      background: #2e7d32;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+    .payment {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .payment button {
+      background: #0070ba;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .payment button.credit {
+      background: #4caf50;
+    }
+
+    footer {
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with logo + navigation -->
+  <header>
+    <img src="https://via.placeholder.com/150x50?text=LOGO" alt="Logo" />
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#request">Request Service</a>
+      <a href="#payment">Payments</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>GreenLeaf Lawn Care</h1>
+    <p>Professional lawn maintenance, landscaping, and care services.</p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Lawn Mowing</h3>
+        <p>Keep your grass neat and healthy with regular mowing.</p>
+      </div>
+      <div class="card">
+        <h3>Landscaping</h3>
+        <p>Design and maintain beautiful outdoor spaces.</p>
+      </div>
+      <div class="card">
+        <h3>Seasonal Cleanup</h3>
+        <p>Leaf removal, fertilizing, and seasonal yard preparation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Request Form -->
+  <section id="request">
+    <h2>Request a Service</h2>
+    <form action="mailto:youremail@example.com" method="POST" enctype="text/plain">
+      <!-- Change email in "action" above to your real email -->
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Describe your lawn care needs" required></textarea>
+      <button type="submit">Send Request</button>
+    </form>
+  </section>
+
+  <!-- Payment Options -->
+  <section id="payment">
+    <h2>Make a Payment</h2>
+    <div class="payment">
+      <!-- Placeholder buttons (replace with Stripe/PayPal integrations) -->
+      <button class="credit">Pay with Credit Card</button>
+      <button>Pay with PayPal</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 GreenLeaf Lawn Care. All rights reserved.</p>
+  </footer>
+</body>
+</html>
