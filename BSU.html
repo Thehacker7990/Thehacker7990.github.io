@@ -93,45 +93,17 @@
     .service img {
       width: 100%;
       border-radius: 8px;
-      height: 180px;
-      object-fit: cover;
+      height: auto; /* let full image show */
+      object-fit: contain;
     }
 
     .contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
+      text-align: center;
     }
 
-    .contact-info, .contact-form {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .contact-info p {
+    .contact p {
       margin: 10px 0;
-      font-size: 1.1rem;
-    }
-
-    form input, form textarea, form button {
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    form button {
-      background: #2e7d32;
-      color: white;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background: #1b5e20;
+      font-size: 1.2rem;
     }
 
     .calendar {
@@ -233,20 +205,9 @@
   <section id="contact">
     <h2>Contact Us</h2>
     <div class="contact">
-      <div class="contact-info">
-        <p>📞 Phone: <strong> </strong></p>
-        <p>📧 Email: <strong>info@tripleblade.com</strong></p>
-        <p>📍 Serving the local community with pride</p>
-      </div>
-      <div class="contact-form">
-        <form>
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Your Email" required>
-          <input type="tel" placeholder="Your Phone Number">
-          <textarea rows="5" placeholder="Describe your lawn care needs..." required></textarea>
-          <button type="submit">Send Request</button>
-        </form>
-      </div>
+      <p>📞 Phone: <strong>(555) 123-4567</strong></p>
+      <p>📧 Email: <strong>info@tripleblade.com</strong></p>
+      <p>📍 Serving the local community with pride</p>
     </div>
   </section>
 
