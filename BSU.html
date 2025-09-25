@@ -1,1 +1,286 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triple Blade Landscaping</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #2e7d32;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1599058917212-d750089bc4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px 25px;
+      border-radius: 8px;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2e7d32;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .service {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .service img {
+      width: 100%;
+      border-radius: 8px;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .contact-info, .contact-form {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    form input, form textarea, form button {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    form button {
+      background: #2e7d32;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #1b5e20;
+    }
+
+    .calendar {
+      margin-top: 30px;
+      overflow-x: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background: #2e7d32;
+      color: white;
+    }
+
+    .available {
+      background: #c8e6c9;
+    }
+
+    .unavailable {
+      background: #ffcdd2;
+    }
+
+    footer {
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="triple-blade-logo.png" alt="Triple Blade Landscaping Logo">
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#calendar">Availability</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Keeping Your Lawn Fresh & Beautiful 🌱</h1>
+  </div>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1597008631379-dc91878ae6e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lawn Mowing">
+        <h3>Lawn Mowing</h3>
+        <p>Regular mowing to keep your yard perfectly maintained.</p>
+      </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1589924691995-400dc9eccb5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hedge Trimming">
+        <h3>Hedge Trimming</h3>
+        <p>Professional hedge trimming to keep your landscape tidy.</p>
+      </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1600674761257-f3e3880c7a06?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Garden Care">
+        <h3>Garden Care</h3>
+        <p>Flower bed maintenance, weeding, and seasonal cleanups.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendar Section -->
+  <section id="calendar">
+    <h2>Availability Calendar</h2>
+    <div class="calendar">
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="calendar-body">
+          <!-- Filled by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact">
+      <div class="contact-info">
+        <p>📞 Phone: <strong>(555) 123-4567</strong></p>
+        <p>📧 Email: <strong>info@tripleblade.com</strong></p>
+        <p>📍 Serving the local community with pride</p>
+      </div>
+      <div class="contact-form">
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <input type="tel" placeholder="Your Phone Number">
+          <textarea rows="5" placeholder="Describe your lawn care needs..." required></textarea>
+          <button type="submit">Send Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Triple Blade Landscaping | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Generate availability for the next 7 days
+    const calendarBody = document.getElementById("calendar-body");
+    const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const today = new Date();
+
+    for (let i = 0; i < 7; i++) {
+      let date = new Date();
+      date.setDate(today.getDate() + i);
+
+      let row = document.createElement("tr");
+      let dayCell = document.createElement("td");
+      let statusCell = document.createElement("td");
+
+      dayCell.textContent = days[date.getDay()] + " " + (date.getMonth()+1) + "/" + date.getDate();
+
+      // Random availability (example logic)
+      let available = Math.random() > 0.3;
+      statusCell.textContent = available ? "Available" : "Not Available";
+      statusCell.className = available ? "available" : "unavailable";
+
+      row.appendChild(dayCell);
+      row.appendChild(statusCell);
+      calendarBody.appendChild(row);
+    }
+  </script>
+
+</body>
+</html>
