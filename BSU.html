@@ -48,7 +48,7 @@
 
     .hero {
       background: url('https://images.unsplash.com/photo-1599058917212-d750089bc4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
-      height: 80vh;
+      height: 70vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -93,7 +93,7 @@
     .service img {
       width: 100%;
       border-radius: 8px;
-      height: auto; /* let full image show */
+      height: auto;
       object-fit: contain;
     }
 
@@ -118,7 +118,7 @@
 
     th, td {
       border: 1px solid #ddd;
-      padding: 12px;
+      padding: 10px;
       text-align: center;
     }
 
@@ -127,12 +127,16 @@
       color: white;
     }
 
-    .available {
-      background: #c8e6c9;
+    .slot {
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 5px;
+      background: #ffcdd2; /* default: not available */
+      transition: background 0.3s;
     }
 
-    .unavailable {
-      background: #ffcdd2;
+    .available {
+      background: #c8e6c9 !important;
     }
 
     footer {
@@ -185,13 +189,18 @@
 
   <!-- Calendar Section -->
   <section id="calendar">
-    <h2>Availability Calendar</h2>
+    <h2>Weekly Availability</h2>
+    <p style="text-align:center; margin-bottom:15px;">💡 Click on a time slot to toggle availability</p>
     <div class="calendar">
       <table>
         <thead>
           <tr>
             <th>Day</th>
-            <th>Status</th>
+            <th>9 AM</th>
+            <th>11 AM</th>
+            <th>1 PM</th>
+            <th>3 PM</th>
+            <th>5 PM</th>
           </tr>
         </thead>
         <tbody id="calendar-body">
@@ -217,7 +226,7 @@
   </footer>
 
   <script>
-    // Generate availability for the next 7 days
+    // Setup weekly calendar with time slots
     const calendarBody = document.getElementById("calendar-body");
     const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     const today = new Date();
@@ -227,18 +236,23 @@
       date.setDate(today.getDate() + i);
 
       let row = document.createElement("tr");
+
+      // Day cell
       let dayCell = document.createElement("td");
-      let statusCell = document.createElement("td");
-
       dayCell.textContent = days[date.getDay()] + " " + (date.getMonth()+1) + "/" + date.getDate();
-
-      // Random availability (example logic)
-      let available = Math.random() > 0.3;
-      statusCell.textContent = available ? "Available" : "Not Available";
-      statusCell.className = available ? "available" : "unavailable";
-
       row.appendChild(dayCell);
-      row.appendChild(statusCell);
+
+      // Time slots
+      ["9 AM","11 AM","1 PM","3 PM","5 PM"].forEach(time => {
+        let slot = document.createElement("td");
+        slot.textContent = time;
+        slot.classList.add("slot"); // default: unavailable
+        slot.addEventListener("click", () => {
+          slot.classList.toggle("available");
+        });
+        row.appendChild(slot);
+      });
+
       calendarBody.appendChild(row);
     }
   </script>
